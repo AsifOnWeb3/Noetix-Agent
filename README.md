@@ -34,7 +34,7 @@ Get a free API key from [OpenRouter](https://openrouter.ai) — access 200+ mode
 
 ```bash
 # One-line installer (Linux / macOS / WSL2)
-curl -fsSL https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/noetix-agent/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/AsifOnWeb3/noetix-agent/main/install.sh | bash
 
 # Reload shell
 source ~/.bashrc  # or source ~/.zshrc
@@ -74,7 +74,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 source ~/.bashrc
 
 # Clone NoetixAgent
-git clone https://github.com/YOUR_GITHUB_USERNAME/noetix-agent.git
+git clone https://github.com/AsifOnWeb3/noetix-agent.git
 cd noetix-agent
 
 # Install
@@ -115,7 +115,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 source ~/.zshrc  # Kali uses zsh by default
 
 # Step 3 — Clone repo
-git clone https://github.com/YOUR_GITHUB_USERNAME/noetix-agent.git ~/noetix-agent
+git clone https://github.com/AsifOnWeb3/noetix-agent.git ~/noetix-agent
 cd ~/noetix-agent
 
 # Step 4 — Install
@@ -165,7 +165,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 source ~/.zshrc  # or ~/.bash_profile
 
 # Step 4 — Clone repo
-git clone https://github.com/YOUR_GITHUB_USERNAME/noetix-agent.git ~/noetix-agent
+git clone https://github.com/AsifOnWeb3/noetix-agent.git ~/noetix-agent
 cd ~/noetix-agent
 
 # Step 5 — Install
