@@ -21,10 +21,12 @@ class TelegramGateway:
 
     def start(self):
         try:
-            from telegram import Update
-            from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters
+            from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, Application
 
-            app = ApplicationBuilder().token(self.token).build()
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+
+            app: Application = ApplicationBuilder().token(self.token).build()
 
             async def start_cmd(update, context):
                 await update.message.reply_text("NoetixAgent ready. Send me a task!")
@@ -37,17 +39,25 @@ class TelegramGateway:
                 text = update.message.text
                 await update.message.reply_text("Processing...")
                 result = self.run_task(text)
-                # Split long messages
                 for i in range(0, len(result), 4000):
                     await update.message.reply_text(result[i:i+4000])
 
             app.add_handler(CommandHandler("start", start_cmd))
             app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_msg))
 
-            logger.info("Telegram gateway started.")
-            app.run_polling()
+            async def run():
+                await app.initialize()
+                await app.start()
+                await app.updater.start_polling(drop_pending_updates=True)
+                logger.info("Telegram gateway running.")
+                await asyncio.Event().wait()  # block forever
+
+            loop.run_until_complete(run())
+
         except ImportError:
             logger.error("python-telegram-bot not installed. Run: pip install python-telegram-bot")
+        except Exception as e:
+            logger.error(f"Telegram gateway error: {e}")
 
 
 class DiscordGateway:
@@ -84,7 +94,10 @@ class DiscordGateway:
                 for i in range(0, len(result), 2000):
                     await message.channel.send(result[i:i+2000])
 
-            client.run(self.token)
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+            loop.run_until_complete(client.start(self.token))
+
         except ImportError:
             logger.error("discord.py not installed. Run: pip install discord.py")
 
