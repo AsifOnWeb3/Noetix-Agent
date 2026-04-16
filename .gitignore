@@ -1,0 +1,21 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+.env.*
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# Noetix user data — never commit these
+~/.noetix/config.yaml
+*.key
+*.pem
+
+# IDE
+.vscode/settings.json
+.idea/
+*.swp

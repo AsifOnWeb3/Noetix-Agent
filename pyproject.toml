@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=70", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "noetix-agent"
+version = "1.0.0"
+description = "NoetixAgent — A powerful personal AI agent for coding, automation, research, scheduling, and security"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = [
+    "openai>=1.30.0",
+    "requests>=2.31.0",
+    "pyyaml>=6.0",
+    "rich>=13.0",
+    "duckduckgo-search>=6.0",
+]
+
+[project.optional-dependencies]
+telegram = ["python-telegram-bot>=21.0"]
+discord = ["discord.py>=2.3"]
+all = ["noetix-agent[telegram,discord]", "ruff"]
+
+[project.scripts]
+noetix = "agent.core:main"
+
+[tool.setuptools.packages.find]
+include = ["agent*", "tools*", "skills*", "gateway*", "cron*"]
