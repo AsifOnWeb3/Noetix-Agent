@@ -4,7 +4,7 @@
 
 set -e
 
-REPO_URL="https://github.com/YOUR_GITHUB_USERNAME/noetix-agent"
+REPO_URL="https://github.com/AsifOnWeb3/Noetix-Agent"
 INSTALL_DIR="$HOME/.noetix"
 CONFIG_DIR="$HOME/.noetix"
 
