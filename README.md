@@ -5,6 +5,7 @@
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 [![OpenRouter](https://img.shields.io/badge/Powered%20by-OpenRouter-orange)](https://openrouter.ai)
+[![Telegram](https://img.shields.io/badge/JOIN-TELEGRAM-blue?logo=telegram&logoSize=auto)](https://t.me/+JWuxODyDfaJkYjJl)
 
 ---
 
