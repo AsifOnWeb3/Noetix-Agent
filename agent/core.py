@@ -22,6 +22,7 @@ def create_agent(config_path: Optional[str] = None) -> "AgentLoop":
     tools = ToolRegistry()
     tools.auto_discover(Path(__file__).parent.parent / "tools")
     tools.auto_discover(Path(__file__).parent.parent / "skills")
+<<<<<<< HEAD
 
     # Init sub-agent orchestrator
     try:
@@ -40,6 +41,8 @@ def create_agent(config_path: Optional[str] = None) -> "AgentLoop":
         import logging
         logging.getLogger("noetix").warning(f"Sub-agent init skipped: {e}")
 
+=======
+>>>>>>> a88ca3bf05f5ef1ddba1f2199446e3a6576367c8
     return AgentLoop(config=config, memory=memory, tools=tools)
 
 
